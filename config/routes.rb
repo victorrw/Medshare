@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :meds
   end
 
-  resources :shares, only: [:index, :create, :edit, :update]
+  resources :shares, only: [:index, :create]
 end
