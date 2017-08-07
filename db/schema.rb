@@ -10,9 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170807183756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "meds", force: :cascade do |t|
+    t.string   "name"
+    t.date     "exp_date"
+    t.integer  "share_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["share_id"], name: "index_meds_on_share_id", using: :btree
+    t.index ["user_id"], name: "index_meds_on_user_id", using: :btree
+  end
+
+  create_table "shares", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "shipping"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shares_on_user_id", using: :btree
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "zipcode"
+    t.string   "email"
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "meds", "shares"
+  add_foreign_key "meds", "users"
+  add_foreign_key "shares", "users"
 end

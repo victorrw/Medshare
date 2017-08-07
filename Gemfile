@@ -15,6 +15,15 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'devise'
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
+gem 'simple_form'
+gem 'autoprefixer-rails'
+gem 'figaro'
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
+
 
 group :development, :test do
   gem 'better_errors'
@@ -24,4 +33,5 @@ group :development, :test do
   gem 'pry-rails'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'faker'
 end
