@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   root to: 'pages#home'
 
   resources :users, only: [:new, :create, :edit, :update, :show] do
