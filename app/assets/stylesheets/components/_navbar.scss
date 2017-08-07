@@ -11,15 +11,25 @@
 }
 
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
+.navbar-logo img {
+  height: 40px;
+  border-radius: 50%;
+  border: red 1px solid;
+
+}
+
+/* Logo */
+.navbar-logo p {
+  font-size: 10px;
+  color: red;
 }
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
+  border: lightgray 1px solid;
 }
 
 /* Right section */
