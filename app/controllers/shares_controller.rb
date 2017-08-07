@@ -14,5 +14,6 @@ class SharesController < ApplicationController
       redirect_to shares_path
     else
       render :new
+    end
   end
 end
