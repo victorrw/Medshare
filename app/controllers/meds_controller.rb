@@ -20,6 +20,7 @@ class MedsController < ApplicationController
       redirect_to med_path(@med)
     else
       render :new
+    end
   end
 
   def edit
