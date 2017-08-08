@@ -1,7 +1,7 @@
 class MedsController < ApplicationController
   #Definir o usuário ao qual pertencerá o med:
-  before_action :set_user, only: [:new, :create]
-  skip_before_action :authenticate_user!
+  # before_action :set_user, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     #exibir todos os meds disponiveis:
@@ -44,14 +44,14 @@ class MedsController < ApplicationController
   def delete
     @med = Med.find(params[:id])
     @med.destroy
-    redirect_to user_path(@user)
+    redirect_to user_path(current_user)
   end
 
   private
 
-  def set_user
-    @user = User.find(:user_id)
-  end
+  # def set_user
+  #   #@user = User.find(:user_id)
+  # end
 
   def med_params
     require(:med).permit(params[:name, :exp_date])
