@@ -1,7 +1,6 @@
 
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCPY_s3CSbG4oB6JT6jtCSgwQDbAsWYkdjrYr5sbAluJPnVoj4');">
   <div class="banner-content">
-     search-function
     <h2>Encontre medicamentos fornecidos por doadores</h2>
     <%= form_tag(meds_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Busque medicamentos", class:"form-control"%>
