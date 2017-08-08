@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
+# added gem ominiauth-facebook. Brought figaro and devise up
+gem 'omniauth-facebook'
 gem 'figaro'
+gem 'devise'
+
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
@@ -12,7 +16,6 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'uglifier'
-gem 'devise'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
