@@ -1,6 +1,16 @@
 <div class="container" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCPY_s3CSbG4oB6JT6jtCSgwQDbAsWYkdjrYr5sbAluJPnVoj4');">
   <h2>Lista de doadores</h2>
 
+ search-function
+  <% @meds.each do |med| %>
+    <%= med.name %>
+  <% end %>
+
+  <ul class="medicines-offers">
+  <li > <img src="" alt="" class="box">
+  <h2 class="title">aspirina</h2>
+  <p class="descrition"> blablabal</p>
+  </li>
   <div class="medicines-offers">
 
     <div class="card">

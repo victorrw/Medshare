@@ -1,10 +1,14 @@
 class MedsController < ApplicationController
   #Definir o usuário ao qual pertencerá o med:
   before_action :set_user, only: [:new, :create]
+  skip_before_action :authenticate_user!
 
   def index
     #exibir todos os meds disponiveis:
-    @meds = Med.all
+    @meds = Med.all.order("created_at DESC")
+    if params[:search].present?
+      @meds = @meds.search(params[:search])
+    end
   end
 
   def new
