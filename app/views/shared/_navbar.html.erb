@@ -5,6 +5,11 @@
     <p>Medshare</p>
   <% end %>
 
+  <%= form_tag(meds_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Busque medicamentos", class:"form-control"%>
+  <% end %>
+  <button type="submit" class="btn-treehouse">Pesquisar</button>
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
@@ -14,6 +19,7 @@
       <%= link_to "Meds", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Shares", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Profile", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".new_med", default: "Doe seu medicamento"),new_med_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -42,7 +48,9 @@
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-      <%= link_to t(".sign_up", default: "Register"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_up", default: "Criar conta"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to t(".new_med", default: "Doe seu medicamento"),new_med_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
 
