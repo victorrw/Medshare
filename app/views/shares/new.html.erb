@@ -1,2 +1,5 @@
 <h1>Shares#new</h1>
-<p>Find me in app/views/shares/new.html.erb</p>
+
+<p><%= @med.name %></p>
+<p><%= "Doador: #{@med.user.name}" %></p>
+<p><%= "Receptor: #{current_user.name}" %></p>

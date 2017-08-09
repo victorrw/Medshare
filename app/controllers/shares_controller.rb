@@ -6,6 +6,7 @@ class SharesController < ApplicationController
 
   def new
     @share = Share.new
+    @med = Med.find(params[:med_id])
   end
 
   def create
