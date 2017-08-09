@@ -15,19 +15,10 @@
         <%=cl_image_tag @med.photo.url(:bright)%>
         <%=cl_image_tag @med.photo.url(:bright)%>
       </div>
-       <%= link_to "Pedir", shares_path, { id:"ask", class: "btn-search" }%>
+       <%= link_to "Pedir", new_share_path(med_id: @med.id), { id:"ask", class: "btn-search" }%>
 
       <%= link_to "Bula", shares_path, { id:"leaflet", class: "btn-search" }%>
       </div>
     </div>
   </div>
 </div>
-<!-- added to display geocoder message -->
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var coord = <%= raw @med_coordinates.to_json %>;
-      alert('Med coordinates are ' + coord.lat + ', ' + coord.lng);
-    });
-  <% end %>
-<% end %>

@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: [:show]
   resources :meds
-  resources :shares, only: [:index, :create]
+  resources :shares, only: [:new, :create]
   resources :users, only: [:show]
 end
