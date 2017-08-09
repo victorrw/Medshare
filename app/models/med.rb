@@ -4,7 +4,7 @@ class Med < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   validates :name, presence: true, allow_nil: false, allow_blank: false
-  validates :descrition, presence: true, allow_nil: false, allow_blank: false
+  validates :description, presence: true, allow_nil: false, allow_blank: false
   def self.search(search)
     # search => "dorflex"
     where("UPPER(name) LIKE ?", "%#{search.upcase}%")
