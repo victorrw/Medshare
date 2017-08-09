@@ -1,10 +1,14 @@
-<h2>Preencha os dados do remédio</h2>
-<%=simple_form_for(@med) do |m| %>
-  <%= m.input :name, label: 'Nome do medicamento:', placeholder: 'Nome do medicamento' %>
-  <%= m.input :exp_date, label: 'Data de validade' %>
-  <h5> Se possível, insira fotos do medicamento, preferencialmente mostrando a data de validade </h5>
-  <%= m.input :photo, label: 'Fotos do medicamento' %>
-  <%= m.input :photo_cache, as: :hidden %>
-  <%= m.input :description, label: 'Adicione uma descrição' %>
-  <%= m.button :submit, label: 'Anunciar', class: 'btn btn-primary' %>
-<% end %>
+
+<h2 class='text-center'>Preencha os dados do remédio</h2>
+<div class="container">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <%=simple_form_for(@med) do |m| %>
+      <%= m.input :name, label: 'Nome do medicamento:', placeholder: 'Nome do medicamento' %>
+      <%= m.input :exp_date, label: 'Data de validade' %>
+      <%= m.input :photo, label: 'Fotos do medicamento' %>
+      <%= m.input :photo_cache, as: :hidden %>
+      <%= m.input :description, label: 'Adicione uma descrição' %>
+      <%= m.button :submit, label: 'Anunciar', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
