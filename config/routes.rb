@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :meds
   resources :shares, only: [:index, :create]
-  # removed resources :users, only: [:new, :create, :edit, :update, :show] do end
+  resources :users, only: [:show]
 end

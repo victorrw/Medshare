@@ -9,6 +9,15 @@ class MedsController < ApplicationController
     if params[:search].present?
       @meds = @meds.search(params[:search])
     end
+
+    # added for geocoding
+    @meds = @meds.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@meds) do |med, marker|
+      marker.lat med.latitude
+      marker.lng med.longitude
+      # marker.infowindow render_to_string(partial: "/meds/map_box", locals: { med: med })
+    end
   end
 
   def new
