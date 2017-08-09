@@ -1,7 +1,10 @@
 class Med < ApplicationRecord
   belongs_to :user
   belongs_to :share, optional: true
+  mount_uploader :photo, PhotoUploader
 
+  validates :name, presence: true, allow_nil: false, allow_blank: false
+  validates :descrition, presence: true, allow_nil: false, allow_blank: false
   def self.search(search)
     # search => "dorflex"
     where("UPPER(name) LIKE ?", "%#{search.upcase}%")
@@ -9,6 +12,6 @@ class Med < ApplicationRecord
   end
 
 #   validates :share, allow_nil: true
-#   validates :name, presence: true, allow_nil: false, allow_blank: false
+
 #   validates :exp_date, presence: true, allow_nil: false, allow_blank: false
  end

@@ -14,7 +14,7 @@
 .navbar-logo img {
   height: 180px;
   position: absolute;
- top: -49px;
+  top: -49px;
 
 
 }
@@ -23,6 +23,31 @@
 .navbar-logo p {
   font-size: 10px;
   color: red;
+}
+
+.form-control {
+  display: block;
+  width: 221px;
+  height: 30px;
+  padding: 6px 12px;
+  font-size: 15px;
+  text-align: center;
+  line-height: 1.428571429;
+  color: #000000;
+  background-color: #fff;
+  position:absolute;
+  left: 295px;
+  top: 22px;
+
+}
+
+.btn-treehouse {
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #2f88c1;
+  transition: background 0.3s ease;
 }
 
 /* User Avatar */
@@ -86,3 +111,4 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+

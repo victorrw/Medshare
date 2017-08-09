@@ -39,6 +39,7 @@ class MedsController < ApplicationController
   end
 
   def show
+    @med = Med.find(params[:id])
   end
 
   def delete
@@ -54,6 +55,6 @@ class MedsController < ApplicationController
   # end
 
   def med_params
-    require(:med).permit(params[:name, :exp_date])
+    params.require(:med).permit(:name, :description, :exp_date, :photo, :photo_cache)
   end
 end
