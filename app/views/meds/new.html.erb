@@ -1,2 +1,6 @@
-<h1>Meds#new</h1>
-<p>Find me in app/views/meds/new.html.erb</p>
+<h2>Preencha os dados do remédio</h2>
+<%=simple_form_for(@med) do |m| %>
+  <%= m.input :name, placeholder: 'Nome do remédio' %>
+  <%= m.input :exp_date %>
+  <%= m.button :submit, class: 'btn btn-primary' %>
+<% end %>
