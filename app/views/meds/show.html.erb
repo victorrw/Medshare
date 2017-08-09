@@ -13,7 +13,10 @@
         <%=cl_image_tag @med.photo.url(:bright)%>
         <%=cl_image_tag @med.photo.url(:bright)%>
       </div>
-      <div class="text-center"><%= submit_tag "Pedir", class: "btn-search"%></div>
+       <%= link_to "Pedir", shares_path, { id:"ask", class: "btn-search" }%>
+
+      <%= link_to "Bula", shares_path, { id:"leaflet", class: "btn-search" }%>
+      </div>
     </div>
   </div>
 </div>
