@@ -1,14 +1,16 @@
 <div class="container" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCPY_s3CSbG4oB6JT6jtCSgwQDbAsWYkdjrYr5sbAluJPnVoj4');">
   <h2>Lista de doadores</h2>
 
-  <% @meds.each do |med| %>
-    <%= med.name %>
-  <% end %>
+
 
   <div class="medicines-offers">
+    <% @meds.each do |med| %>
+    <%= med.name %>
+    <% end %>
 
-    <div class="card">
-      <img src="https://remedioparaemagrecerrapido.files.wordpress.com/2016/02/cloridrato-de-metformina-1g-medley-generico.jpg" alt="" class="box">
+
+      <div class="card">
+        <img src="https://remedioparaemagrecerrapido.files.wordpress.com/2016/02/cloridrato-de-metformina-1g-medley-generico.jpg" alt="" class="box">
       <h4 class="title">nome do usuario</h4>
       <div class="content">
         <p class="descrition">

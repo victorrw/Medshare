@@ -39,6 +39,7 @@ class MedsController < ApplicationController
   end
 
   def show
+    @med = Med.find(params[:id])
   end
 
   def delete
