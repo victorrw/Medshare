@@ -15,9 +15,6 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Meds", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Shares", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Profile", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".new_med", default: "Doe seu medicamento"),new_med_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
@@ -27,7 +24,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Perfil") %>
               <% end %>
             </li>
             <li>
@@ -35,6 +32,18 @@
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-thermometer-quarter" aria-hidden="true"></i>  <%= t(".profile", default: "Medicamentos") %>
+              <% end %>
+            </li>
+             <li>
+              <%= link_to "#" do %>
+
+                <i class="fa fa-share" aria-hidden="true"></i>  <%= t(".profile", default: "Trocas") %>
+              <% end %>
+            </li>
+
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
