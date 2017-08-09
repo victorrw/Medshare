@@ -1,7 +1,27 @@
-<h1>MY MEDICINES TO GIVE</h1>
+
+<div id="users">
+  <div class:"container">
+   <div class="dropdown">
+      <%= image_tag user_picture, class: "avatar", id: "navbar-wagon-menu", "data-toggle" => "dropdown", class: "img-circle" %>
+      <h3 text-align="in-line">dados do usuario</h3>
+    </div>
+    <div class="content">
+      <div class=card>
+          <h4 text="top-center">Pedidos</h4>
+          <p text-align="left">- Xylocaina - 30/08/2017 - 10:00 pm</p>
+      </div>
+      <div class=card>
+          <h4 text="top-center">Doações</h4>
+          <p text-align="left">- anticoncpcional - 12/05/2017 - 11:00 am</p>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <% @meds.each_with_index do |med, index| %>
   <p>
   <%= "#{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
   </p>
 <% end %>
+

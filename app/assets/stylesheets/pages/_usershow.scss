@@ -1,0 +1,36 @@
+#users {
+
+  .img-circle {
+    border-radius: 50%;
+    height: 100px;
+    position:relative;
+    top: 20px;
+    left: 30px;
+
+  }
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card {
+    height:500px;
+    width: 500px;
+  }
+
+  p {
+    top: 90px;
+    left: 20px;
+    font-size: 14px;
+  }
+  h3 {
+    position: relative;
+    top: -71px;
+    left: 170px;
+    font-size: 20px;
+  }
+
+}
+
+
