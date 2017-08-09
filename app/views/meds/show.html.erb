@@ -1,24 +1,48 @@
-<div class="banner-meds" style="background-image: url(<%= cl_image_path(@med.photo.url)%>)">
-</div>
 <div class="container">
   <div class="wrapper-meds">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-6">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <%=cl_image_tag @med.photo.url, class: "img-main-med"%>
+            </div>
+            <div class="item">
+              <%=cl_image_tag @med.photo.url, class: "img-main-med"%>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6">
         <h1><%=@med.name%></h1>
         <h3>Validade: <%=@med.exp_date%></h3>
-        <p><%=@med.description%></p>
-      </div>
-      <div class="col-md-4">
+        <p class="max-height-150 scroll-overflow"><%=@med.description%></p>
+        <%= image_tag @med.user.facebook_picture_url, class: "card-user avatar avatar-large" %>
+        <span>Doador:<%=@med.user.name%></span>
         <div class="text-center">
-          <%= image_tag @med.user.facebook_picture_url, class: "card-user avatar avatar-large" %>
-           <p>Doador:<%=@med.user.name%></p>
+          <%= link_to "Pedir", new_share_path(med_id: @med.id), { id:"ask", class: "btn-search" }%>
+          <%= link_to "Bula", shares_path, { id:"leaflet", class: "btn-search" }%>
         </div>
       </div>
     </div>
-    <%=cl_image_tag @med.photo.url(:bright)%>
-    <%=cl_image_tag @med.photo.url(:bright)%>
-    <br><br>
-    <%= link_to "Pedir", new_share_path(med_id: @med.id), { id:"ask", class: "btn-search" }%>
-    <%= link_to "Bula", shares_path, { id:"leaflet", class: "btn-search" }%>
   </div>
 </div>
+
