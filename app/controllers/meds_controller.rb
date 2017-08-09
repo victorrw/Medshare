@@ -18,7 +18,7 @@ class MedsController < ApplicationController
 
   def create
     #criar medicamento atrelado ao usuário
-    @med = current_user.meds.new(med_params)
+    @med = current_user.meds.new(params[:name, :exp_date])
     #salvar no banco de dados
     if @med.save
       redirect_to med_path(@med)
