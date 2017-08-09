@@ -1,15 +1,17 @@
+<div class="banner-meds" style="background-image: url(<%= cl_image_path(@med.photo.url)%>)">
+</div>
 <div class="container"
   <div class="wrapper-grey padded">
     <div class="container">
       <div class="col-lg-7 col-md-6 col-sm-12">
         <h1><%=@med.name%></h1>
         <h3>Validade: <%=@med.exp_date%></h3>
+        <div
         <h3>Doador:<%=@med.user.name%></h3>
         <%= image_tag @med.user.facebook_picture_url, class: "card-user avatar avatar-large" %>
         <p><%=@med.description%></p>
       </div>
       <div class="col-lg-7 col-md-6 col-sm-12">
-        <%=cl_image_tag @med.photo.url(:bright)%>
         <%=cl_image_tag @med.photo.url(:bright)%>
         <%=cl_image_tag @med.photo.url(:bright)%>
       </div>
