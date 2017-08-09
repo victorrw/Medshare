@@ -5,25 +5,23 @@
     <div class="card">
       <%= cl_image_tag @med.photo.url(:bright)%>
       <h4><%= @med.name %> validade:<%=@med.exp_date%></h4>
+
       <div class="content">
+
         <p class="description"><%=@med.description%></p>
+
       </div>
-      <div><a href="#" class="btn-treehouse">Adquirir</a></div>
-      <div><a href="#" class="btn-treehouse">Bula</a></div>
+
+      <%= link_to "Pedir", shares_path, { id:"ask", class: "btn-treehouse" }%>
+
+      <%= link_to "Bula", shares_path, { id:"leaflet", class: "btn-treehouse" }%>
+
     </div>
+
     <div class="card">
     <%=image_tag("#{@med.user.facebook_picture_url}", class:"img-circle")%>
     <h4><%=@med.user.name%></h4>
     </div>
+
   </div>
 </div>
-
-<!-- added to display geocoder message -->
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var coord = <%= raw @med_coordinates.to_json %>;
-      alert('Med coordinates are ' + coord.lat + ', ' + coord.lng);
-    });
-  <% end %>
-<% end %>
