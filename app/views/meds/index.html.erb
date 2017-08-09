@@ -9,9 +9,7 @@
         <%= cl_image_tag med.photo.url(:bright), class:"box" %>
       <h4><%= med.name %></h4>
       <div class="content">
-        <p class="descrition">
-          Aspirina® contém a substância ativa ácido acetilsalicílico, que pertence ao grupo de substâncias anti-inflamatórias não-esteroides, com propriedades anti-inflamatória (atua na inflamação).
-        </p>
+        <p class="descrition"><%= med.description %></p>
       </div>
       <a href="#" class="btn-treehouse">get it</a>
       </div>
