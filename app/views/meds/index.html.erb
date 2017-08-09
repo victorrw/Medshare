@@ -9,7 +9,7 @@
       <div class="content">
         <p class="descrition"><%= med.description %></p>
       </div>
-      <% link_to "Mais informações", med_path(med) %>
+      <%= link_to "Mais informações", med_path(med), {class:"btn-search"} %>
       </div>
     <% end %>
   </div>
