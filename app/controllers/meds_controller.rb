@@ -55,6 +55,6 @@ class MedsController < ApplicationController
   # end
 
   def med_params
-    params.require(:med).permit(:name, :exp_date, :photo, :photo_cache)
+    params.require(:med).permit(:name, :description, :exp_date, :photo, :photo_cache)
   end
 end
