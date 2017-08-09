@@ -1,18 +1,19 @@
+<div class="container" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCPY_s3CSbG4oB6JT6jtCSgwQDbAsWYkdjrYr5sbAluJPnVoj4');">
+  <h2 class='text-center'><%@med.name%></h2>
 
-<h1><%= "Med name" %></h1>
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1><%= @med.name %></h1>
-      <%= cl_image_tag @med.photo.url(:standard) %>
-      <div>Informações do doador</div>
-      <div>Localização</div>
-      <div>med_photo</div>
-      <div>exp_date_photo</div>
-      <div>date de validade</div>
-      <div>Descrição do Medicamento</div>
-      <div>Bula</div>
+  <div class="medicines-offers">
+    <div class="card">
+      <%= cl_image_tag @med.photo.url(:bright)%>
+      <h4><%= @med.name %> validade:<%=@med.exp_date%></h4>
+      <div class="content">
+        <p class="description"><%=@med.description%></p>
+      </div>
+      <div><a href="#" class="btn-treehouse">Adquirir</a></div>
+      <div><a href="#" class="btn-treehouse">Bula</a></div>
+    </div>
+    <div class="card">
+    <%=image_tag("#{@med.user.facebook_picture_url}", class:"img-circle")%>
+    <h4><%=@med.user.name%></h4>
     </div>
   </div>
 </div>
