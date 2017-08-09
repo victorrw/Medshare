@@ -11,12 +11,15 @@
   .content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 20px 50px;
+
   }
 
   .card {
     height:500px;
     width: 500px;
+
+
   }
 
   p {
@@ -29,6 +32,20 @@
     top: -71px;
     left: 170px;
     font-size: 20px;
+  }
+  .medicines-list h3 {
+    position: relative;
+    top: -8px;
+    left: 34px;
+    font-size: 20px;
+
+  }
+   .medicines-list p {
+    position: relative;
+    top: -8px;
+    left: 34px;
+    font-size: 14px;
+
   }
 
 }
