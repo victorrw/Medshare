@@ -14,6 +14,9 @@ class User < ApplicationRecord
   # validates :zipcode, presence: true, allow_nil: false, allow_blank: false
   # validates :address, presence: true, allow_nil: false, allow_blank: false
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params[:email] = auth.info.email

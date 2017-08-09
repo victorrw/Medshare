@@ -16,3 +16,13 @@
     </div>
   </div>
 </div>
+
+<!-- added to display geocoder message -->
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var coord = <%= raw @med_coordinates.to_json %>;
+      alert('Med coordinates are ' + coord.lat + ', ' + coord.lng);
+    });
+  <% end %>
+<% end %>
