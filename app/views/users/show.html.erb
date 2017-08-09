@@ -1,2 +1,7 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>MY MEDICINES TO GIVE</h1>
+
+<% @meds.each_with_index do |med, index| %>
+  <p>
+  <%= "#{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
+  </p>
+<% end %>
