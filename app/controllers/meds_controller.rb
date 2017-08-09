@@ -18,7 +18,7 @@ class MedsController < ApplicationController
 
   def create
     #criar medicamento atrelado ao usuário
-    @med = current_user.meds.new(params[:name, :exp_date])
+    @med = current_user.meds.new(med_params)
     #salvar no banco de dados
     if @med.save
       redirect_to med_path(@med)
@@ -54,6 +54,6 @@ class MedsController < ApplicationController
   # end
 
   def med_params
-    require(:med).permit(params[:name, :exp_date])
+    params.require(:med).permit(:name, :exp_date, :photo, :photo_cache)
   end
 end

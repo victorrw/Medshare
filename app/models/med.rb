@@ -1,6 +1,7 @@
 class Med < ApplicationRecord
   belongs_to :user
   belongs_to :share, optional: true
+  mount_uploader :photo, PhotoUploader
 
   def self.search(search)
     # search => "dorflex"
