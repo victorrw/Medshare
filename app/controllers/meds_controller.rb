@@ -28,14 +28,18 @@ class MedsController < ApplicationController
 
   def create
     #criar medicamento atrelado ao usuário
-    @med = current_user.meds.new(med_params)
-    @med.latitude = current_user.latitude
-    @med.longitude = current_user.longitude
-    #salvar no banco de dados
-    if @med.save
-      redirect_to med_path(@med)
+    if current_user.address.nil?
+      redirect_to edit_user_path(current_user)
     else
-      render :new
+      @med = current_user.meds.new(med_params)
+      @med.latitude = current_user.latitude
+      @med.longitude = current_user.longitude
+      #salvar no banco de dados
+      if @med.save
+        redirect_to med_path(@med)
+      else
+        render :new
+      end
     end
   end
 

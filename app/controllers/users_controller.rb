@@ -14,16 +14,17 @@ class UsersController < ApplicationController
   #   end
   # end
 
-  # def edit
-  # end
+  def edit
 
-  # def update
-  #   if @user.update(user_params)
-  #     redirect_to @user
-  #   else
-  #     render :edit
-  #   end
-  # end
+  end
+
+  def update
+    # if @user.update(user_params)
+    #   redirect_to @user
+    # else
+    #   render :edit
+    # end
+  end
 
   def show
     @meds = Med.where(user_id: current_user.id)
