@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :meds
   resources :shares, only: [:new, :create]
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 end

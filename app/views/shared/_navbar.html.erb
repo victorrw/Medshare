@@ -30,22 +30,11 @@
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
-            <!-- <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Perfil") %>
-              <% end %>
-            </li> -->
             <li>
               <%= link_to user_path(current_user) do %>
                 <i class="fa fa-thermometer-quarter" aria-hidden="true"></i>  <%= t(".profile", default: "Medicamentos") %>
               <% end %>
             </li>
-             <li>
-              <%= link_to shares_path(current_user) do %>
-                <i class="fa fa-share" aria-hidden="true"></i>  <%= t(".profile", default: "Doações") %>
-              <% end %>
-            </li>
-
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Sair") %>

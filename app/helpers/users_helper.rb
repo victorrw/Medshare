@@ -1,5 +1,5 @@
 module UsersHelper
   def user_picture
-    current_user.facebook_picture_url || "http://placehold.it/30x30"
+    current_user.facebook_picture_url || "no-avatar.gif"
   end
 end
