@@ -19,6 +19,8 @@ class MedsController < ApplicationController
   def create
     #criar medicamento atrelado ao usuário
     @med = current_user.meds.new(med_params)
+    @med.latitude = current_user.latitude
+    @med.longitude = current_user.longitude
     #salvar no banco de dados
     if @med.save
       redirect_to med_path(@med)
@@ -40,6 +42,9 @@ class MedsController < ApplicationController
 
   def show
     @med = Med.find(params[:id])
+    # added to display geocoder message
+    @alert_message = "You are viewing #{current_user.name}"
+    @med_coordinates = { lat: @med.latitude, lng: @med.longitude }
   end
 
   def delete
@@ -55,6 +60,6 @@ class MedsController < ApplicationController
   # end
 
   def med_params
-    params.require(:med).permit(:name, :description, :exp_date, :photo, :photo_cache)
+    params.require(:med).permit(:name, :description, :exp_date, :photo, :photo_cache, :latitude, :longitude)
   end
 end
