@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.3.4'
 
+# added gem geocoder
+gem 'geocoder'
 # added gem ominiauth-facebook. Brought figaro and devise up
 gem 'omniauth-facebook'
 gem 'figaro'
@@ -28,6 +30,7 @@ gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'binding_of_caller'
+  gem 'better_errors'
   gem 'listen', '~> 3.0.5'
   gem 'pry-byebug'
   gem 'pry-rails'
