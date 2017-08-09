@@ -17,7 +17,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to t(".new_med", default: "Doe seu medicamento"),new_med_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <%= link_to t(".new_med", default: "Doar"),new_med_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -56,11 +57,11 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Entrar"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <%= link_to t(".sign_up", default: "Criar conta"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-      <%= link_to t(".new_med", default: "Doe seu medicamento"),new_med_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".new_med", default: "Doar"),new_med_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
 
