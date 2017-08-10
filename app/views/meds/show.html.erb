@@ -35,7 +35,7 @@
         <h1><%=@med.name%></h1>
         <h3>Validade: <%=@med.exp_date%></h3>
         <p class="max-height-150 scroll-overflow"><%=@med.description%></p>
-        <%= image_tag donator_picture, class: "card-user avatar avatar-large" %>
+        <%= image_tag donator_picture, class:"card-user avatar avatar-large" %>
         <span>Doador: <%=@med.user.name%></span>
         <div class="text-center">
           <% if @med.user == current_user %>

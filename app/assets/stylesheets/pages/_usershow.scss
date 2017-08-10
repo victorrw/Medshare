@@ -1,51 +1,30 @@
 #users {
 
-  .img-circle {
-    border-radius: 50%;
-    height: 100px;
-    position:relative;
-    top: 20px;
-    left: 30px;
-
-  }
-  .content {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 50px;
-
-  }
-
   .card {
-    height:500px;
-    width: 500px;
+    height:200px;
+    width: 800px;
+  }
+  .row {
+    padding: 20px;
+  }
 
-
+  .card-l {
+    background-color: white;
+    height:600px;
+    width: 300px;
+    padding: 20px
   }
 
   p {
-    top: 90px;
-    left: 20px;
     font-size: 14px;
   }
+
   h3 {
-    position: relative;
-    top: -71px;
-    left: 170px;
     font-size: 20px;
   }
+
   .medicines-list h3 {
-    position: relative;
-    top: -8px;
-    left: 34px;
     font-size: 20px;
-
-  }
-   .medicines-list p {
-    position: relative;
-    top: -8px;
-    left: 34px;
-    font-size: 14px;
-
   }
 
 }
