@@ -22,7 +22,8 @@
         <div class=card>
             <h4 text="top-center">Doações em Andamento</h4>
             <p text-align="left">
-                "data: 09/08/2017, medicamento: viagra, doador: Victor"
+            <% raise %>
+              <% "Data: #{Time.now} #{@share.med.name} Doador: #{@share.med.giver.name}" %>
               </p>
         </div>
 

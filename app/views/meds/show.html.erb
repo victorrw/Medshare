@@ -39,10 +39,10 @@
         <span>Doador: <%=@med.user.name%></span>
         <div class="text-center">
           <% if @med.user == current_user %>
-          <%= link_to "Bula", shares_path, { id:"leaflet", class: "btn-search" }%>
+            <%= link_to "Bula", shares_path, { id:"leaflet", class: "btn-search" }%>
           <% else %>
-          <%= link_to "Pedir", new_share_path(med_id: @med.id), { id:"ask", class: "btn-search" }%>
-          <%= link_to "Bula", shares_path, { id:"leaflet", class: "btn-search" }%>
+            <%= button_to "Pedir", shares_path(med_id: @med.id), method: :post, class: "btn-search" %>
+            <%= link_to "Bula", shares_path, { id:"leaflet", class: "btn-search" }%>
           <% end %>
         </div>
       </div>
