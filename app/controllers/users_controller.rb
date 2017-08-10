@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     @meds = current_user.meds
     #returns all donations requested by current user
     @shares = Share.where(taker_id: current_user.id)
+
   end
 
   # private

@@ -25,6 +25,7 @@
           <div class="card-content">
             <% @shares.each_with_index do |share, index| %>
               <p text-align="left">
+
                 <%= "- #{index + 1}) #{share.med.name}, doador: #{share.giver.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")} "%>
 
               </p>
