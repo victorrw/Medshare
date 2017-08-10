@@ -13,12 +13,10 @@
             <hr>
           </div>
           <div class="card-content-l max-heigth-card-l scroll-overflow">
-            <% @meds.each_with_index do |med, index| %>
-              <p>
-                <%"- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
-                <%= link_to "medicament", med_path(med) %>
-              </p>
-           <% end %>
+            <% current_user_meds_available.each_with_index do |med, index| %>
+              <% medicament = "- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")} status: disponível para doação" %>
+              <p><%= link_to medicament, med_path(med) %></p>
+            <% end %>
           </div>
         </div>
       </div>
@@ -33,14 +31,15 @@
             <h3>pending approval by donor</h3>
             <% current_user_shares_waiting_on_donor.each_with_index do |share, index| %>
               <p>
-              <%= "- #{index + 1}) #{share.med.name}, doador: #{share.giver.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")} "%>
+              <%= "- #{index + 1}) #{share.med.name}, doador: #{share.giver.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")} status: #{share.status} "%>
               </p>
           <% end %>
           <h3>pending my approval</h3>
           <div class="card-content max-heigth-card scroll-overflow">
             <% current_users_shares_to_approve.each_with_index do |share, index| %>
               <p>
-              <%= "- #{index + 1}) #{share.med.name}, solicitante: #{share.taker.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")} "%>
+              <% medicament = "- #{index + 1}) #{share.med.name}, solicitante: #{share.taker.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")} status: #{share.status}"%>
+              <%= link_to medicament, "button to chage status"  %>
               </p>
           <% end %>
           </div>
@@ -74,17 +73,8 @@
               </p>
            <% end %>
           </div>
-
         </div>
       </div>
-
     </div>
   </div>
-
 </div>
-
-
-
-
-
-
