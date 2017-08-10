@@ -9,10 +9,8 @@
         <div class="content">
           <p class="description"><%= med.description %></p>
         </div>
-        FUNCIONA ATE AQUI
-        <span>Doador: <%=med.user.name%></span>
-        <%=image_tag donator_picture, class:"card-user avatar avatar-large" %>
-        <span class="align-name-left">Doador: <%link to user_path(med.user)med.user.name%></span>
+        <span class="align-name-mid-left">Doador: <%= link_to user_path(med.user), med.user.name%></span>
+        <%= image_tag donator_picture(med), class:"avatar align-avatar-left"%>
         <p><%= link_to "Mais informações", med_path(med), {class:"btn-search align-btn-top-left"}%></p>
       </div>
     <% end %>
