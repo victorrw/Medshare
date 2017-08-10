@@ -5,33 +5,38 @@
     <% @meds.each do |med| %>
       <div class="card-meds">
         <%= cl_image_tag med.photo.url(:bright), class:"box" %>
-      <h4><%= med.name %></h4>
-      <div class="content">
-        <p class="descrition"><%= med.description %></p>
-      </div>
-      <%= link_to "Mais informações", med_path(med), {class:"btn-search"} %>
+        <h4><%= med.name %></h4>
+        <div class="content">
+          <p class="descrition"><%= med.description %></p>
+        </div>
+      <p class="align align-down-right"><%= link_to "Mais informações", med_path(med), {class:"btn-search"} %></p>
       </div>
     <% end %>
   </div>
 </div>
-
+<br>
 <!-- added for geocoding -->
-<div id="map" style="width: 100%; height: 600px;"></div>
 
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-  <% end %>
-<% end %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div id="map" style="width: 100%; height: 600px;">
+      <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+          $(document).ready(function() {
+            var handler = Gmaps.build('Google');
+            handler.buildMap({ internal: { id: 'map' } }, function() {
+              markers = handler.addMarkers(<%= raw @hash.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+              if (markers.length == 0) {
+                handler.getMap().setZoom(2);
+              } else if (markers.length == 1) {
+                handler.getMap().setZoom(14);
+              }
+            });
+          });
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -35,12 +35,15 @@
         <h1><%=@med.name%></h1>
         <h3>Validade: <%=@med.exp_date%></h3>
         <p class="max-height-150 scroll-overflow"><%=@med.description%></p>
-        <%= image_tag user_picture, class: "card-user avatar avatar-large" %>
-        <span>Doador:<%=@med.user.name%></span>
+        <%= image_tag donator_picture, class: "card-user avatar avatar-large" %>
+        <span>Doador: <%=@med.user.name%></span>
         <div class="text-center">
+          <% if @med.user == current_user %>
+          <%= link_to "Bula", shares_path, { id:"leaflet", class: "btn-search" }%>
+          <% else %>
           <%= link_to "Pedir", new_share_path(med_id: @med.id), { id:"ask", class: "btn-search" }%>
           <%= link_to "Bula", shares_path, { id:"leaflet", class: "btn-search" }%>
-           <p>Doador:<%=@med.user.name%></p>
+          <% end %>
         </div>
       </div>
     </div>

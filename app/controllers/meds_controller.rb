@@ -57,8 +57,11 @@ class MedsController < ApplicationController
   def show
     @med = Med.find(params[:id])
     # added to display geocoder message
-    @alert_message = "You are viewing #{current_user.name}"
-    @med_coordinates = { lat: @med.latitude, lng: @med.longitude }
+    if current_user.nil?
+      redirect_to new_user_session_path
+    else
+      @med_coordinates = { lat: @med.latitude, lng: @med.longitude }
+    end
   end
 
   def delete
