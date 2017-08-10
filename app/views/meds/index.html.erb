@@ -7,9 +7,11 @@
         <%= cl_image_tag med.photo.url(:bright), class:"box" %>
         <h4><%= med.name %></h4>
         <div class="content">
-          <p class="descrition"><%= med.description %></p>
+          <p class="description"><%= med.description %></p>
         </div>
-      <p><%= link_to "Mais informações", med_path(med), {class:"btn-search align-btn-top-left"}%></p>
+        <span class="align-name-mid-left">Doador: <%= link_to user_path(med.user), med.user.name%></span>
+        <%= image_tag donator_picture(med), class:"avatar align-avatar-left"%>
+        <p><%= link_to "Mais informações", med_path(med), {class:"btn-search align-btn-top-left"}%></p>
       </div>
     <% end %>
   </div>
