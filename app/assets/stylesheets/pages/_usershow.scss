@@ -1,18 +1,38 @@
 #users {
-
   .card {
-    height:200px;
-    width: 800px;
-  }
-  .row {
+    background-color: white;
+    height:300px;
+    // width: 800px;
+    margin-bottom: 20px;
     padding: 20px;
+    box-shadow: 10px 10px 5px #888888;
+
+  }
+
+  .card-content-l {
+    background-color: white;
+    padding: 20px;
+  }
+
+  .card-content {
+    background-color: white;
+    padding: 20px;
+  }
+
+  .title-med-giver{
+    padding-left: 20px;
+  }
+
+  .title-content {
+    padding-left: 20px;
   }
 
   .card-l {
     background-color: white;
-    height:600px;
-    width: 300px;
-    padding: 20px
+    height:940px;
+    padding: 1px;
+    margin-bottom: 15px;
+    box-shadow: 10px 10px 5px #888888;
   }
 
   p {
@@ -23,9 +43,38 @@
     font-size: 20px;
   }
 
-  .medicines-list h3 {
-    font-size: 20px;
+  h4 {
+    font-size: 18px;
   }
+
+  .max-heigth-card-l {
+    max-height: 800px
+
+  }
+
+  .max-heigth-card {
+    max-height: 200px;
+  }
+
+  hr {
+    color: #163a50;
+    background-color: #163A4E;
+    height: 2px;
+    width: 693px;
+  }
+
+  .title-med-giver hr {
+    color: #163a50;
+    background-color: #163A4E;
+    height: 2px;
+    width: 330px;
+    text-align: center;
+  }
+
+  .title-med-giver{
+    padding: 0px;
+  }
+
 
 }
 
