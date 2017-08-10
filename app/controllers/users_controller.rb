@@ -29,16 +29,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @transaction = {}
+    transaction = {}
     @transactions = []
     @meds = Med.where(user_id: current_user.id)
     @meds = @meds.where(share_id: nil)
     @shares = Share.where(taker_id: current_user.id)
     @shares.each do |share|
-      @transaction[:share] = share.id
-      @transaction[:med] = Med.find_by(share_id: share.id)
-      @transaction[:giver] = User.find(@transaction[:med].user_id)
-      @transactions << @transaction
+      transaction[:share] = share.id
+      transaction[:med] = Med.find_by(share_id: share.id)
+      transaction[:giver] = User.find(transaction[:med].user_id)
+      @transactions << transaction
     end
   end
 
