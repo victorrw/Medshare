@@ -4,5 +4,5 @@
 
 <p><%= "Doador: #{@med.user.name}" %></p>
 <p><%= "Receptor: #{current_user.name} " %></p>
+<%= link_to "Prosseguir", user_path(current_user), { id:"new_share", class: "btn-search" }%>
 
-<%= link_to "Solicitar Medicamento", user_path(current_user), { id:"new_share", class: "btn-search" }%>

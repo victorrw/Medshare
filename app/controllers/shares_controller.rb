@@ -10,11 +10,21 @@ class SharesController < ApplicationController
   end
 
   def create
-    @share = current_user.share.new(share_params)
-    if @share.save
-      redirect_to shares_path
-    else
-      render :new
-    end
+    @share = current_user.share.new(params)
+    @share.giver = @med.user
+    @share.taker = @current_user
+    raise
+    @share.save
+    # if @share.save
+    #   redirect_to user_path(current_user)
+    # else
+    #   render :new
+    # end
+  end
+
+  private
+
+  def share_params
+    # params.require(:share).permit(:)
   end
 end

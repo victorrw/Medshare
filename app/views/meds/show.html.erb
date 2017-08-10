@@ -38,6 +38,7 @@
         <%= image_tag user_picture, class: "card-user avatar avatar-large" %>
         <span>Doador:<%=@med.user.name%></span>
         <div class="text-center">
+          <%= image_tag donator_picture, class: "card-user avatar avatar-large" %>
           <%= link_to "Pedir", new_share_path(med_id: @med.id), { id:"ask", class: "btn-search" }%>
           <%= link_to "Bula", shares_path, { id:"leaflet", class: "btn-search" }%>
            <p>Doador:<%=@med.user.name%></p>
