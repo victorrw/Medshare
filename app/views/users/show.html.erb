@@ -7,10 +7,8 @@
 
     <div class="row">
       <div class="col-md-4">
-
-
         <div class="card-l">
-
+          <hr>
           <h4 text-align="top-left" >Medicamentos disponíveis para doação</h4>
           <div class="card-content-l">
             <% @meds.each_with_index do |med, index| %>
@@ -20,12 +18,22 @@
               </p>
            <% end %>
           </div>
-          
-       <div class="card">
-
-
-          <h4 text-align="top-left" >Medicamentos recebidos</h4>
+          <hr>
+          <h3><strong>HISTÓRICO DE TRANSAÇÕES</strong></h3>
+          <hr>
+          <h4 text-align="top-left">Transações pendentes de aprovação do Doador</h4>
           <div class="card-content">
+            <% @transactions.each_with_index do |transaction, index| %>
+              <p text-align="left">
+                <%= "- #{index + 1}) #{transaction[:med].name}, doador: #{transaction[:giver].name}, solicitado em: #{transaction[:med].updated_at.strftime("%d/%m/%Y")} "%>
+              </p>
+           <% end %>
+          </div>
+          <hr>
+        <div class="card">
+          <h4 text-align="top-left" >Medicamentos já recebidos</h4>
+          <div class="card-content">
+          <p>SESSION RUNNING ON OUT-TO-DATE INFO (NOT WORKING)</p>
             <% @meds.each_with_index do |med, index| %>
               <p text-align="left">
                 <%= "- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
@@ -39,6 +47,7 @@
 
           <h4 text-align="top-left">Medicamentos já doados</h4>
           <div class="card-content">
+            <p>SESSION RUNNING ON OUT-TO-DATE INFO (NOT WORKING)</p>
             <% @meds.each_with_index do |med, index| %>
               <p text-align="left">
                 <%= "- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
@@ -48,15 +57,7 @@
 
 
 
-          <h4 text-align="top-left">Medicamentos em transação</h4>
-          <div class="card-content">
-            <% @meds.each_with_index do |med, index| %>
-              <p text-align="left">
-                <%= "- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
-              </p>
-           <% end %>
-          </div>
-        
+
         </div>
       </div>
     </div>
