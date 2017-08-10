@@ -26,6 +26,7 @@
             <% @transactions.each_with_index do |transaction, index| %>
               <p text-align="left">
                 <%= "- #{index + 1}) #{transaction[:med].name}, doador: #{transaction[:giver].name}, solicitado em: #{transaction[:med].updated_at.strftime("%d/%m/%Y")} "%>
+                <% raise %>
               </p>
            <% end %>
           </div>
