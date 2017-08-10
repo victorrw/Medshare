@@ -45,5 +45,6 @@ group :development do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'byebug', platform: :mri
+  gem "letter_opener"
 end
 
