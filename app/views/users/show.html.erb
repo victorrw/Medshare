@@ -1,56 +1,66 @@
 
 <div id="users">
 
-  <div class="container">
+  <div class="wrapper">
 
     <h3 text-align="in-line"><%= current_user.name  %></h3>
 
-    <div class="content">
+    <div class="row">
+      <div class="col-md-4">
 
-      <div class="card">
 
-        <h4 text="top-left" >Medicamentos disponíveis para doação</h4>
-        <% @meds.each_with_index do |med, index| %>
-        <p text-align="left">
-        <%= "- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
-        </p>
-            <% end %>
+        <div class="card-l">
 
+          <h4 text-align="top-left" >Medicamentos disponíveis para doação</h4>
+          <div class="card-content-l">
+            <% @meds.each_with_index do |med, index| %>
+              <p text-align="left">
+                <%= "- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
+              </p>
+           <% end %>
+          </div>
+
+        </div>
       </div>
+      <div class="col-md-8">
+        <div class="card">
 
-      <div class=card>
+          <h4 text-align="top-left">Medicamentos em transação</h4>
+          <div class="card-content">
+            <% @meds.each_with_index do |med, index| %>
+              <p text-align="left">
+                <%= "- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
+              </p>
+           <% end %>
+          </div>
+        </div>
 
-        <h4 text="top-left">Medicamentos disponiveis</h4>
-        <p text-align="left">
-                "data: 09/08/2017, medicamento: viagra, doador: Victor"
-        </p>
+        <div class="card">
 
+          <h4 text-align="top-left" >Medicamentos recebidos</h4>
+          <div class="card-content">
+            <% @meds.each_with_index do |med, index| %>
+              <p text-align="left">
+                <%= "- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
+              </p>
+           <% end %>
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h4 text-align="top-left">Medicamentos já doados</h4>
+          <div class="card-content">
+            <% @meds.each_with_index do |med, index| %>
+              <p text-align="left">
+                <%= "- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
+              </p>
+           <% end %>
+          </div>
+
+        </div>
       </div>
-
-    </div>
-
-    <div class="content">
-
-      <div class="card">
-
-        <h4 text="top-left" >Medicamentos disponíveis para doação</h4>
-        <% @meds.each_with_index do |med, index| %>
-        <p text-align="left">
-        <%= "- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
-        </p>
-            <% end %>
-
-      </div>
-
-      <div class=card>
-
-        <h4 text="top-left">Medicamentos disponiveis</h4>
-        <p text-align="left">
-                "data: 09/08/2017, medicamento: viagra, doador: Victor"
-        </p>
-
-      </div>
-
     </div>
 
   </div>

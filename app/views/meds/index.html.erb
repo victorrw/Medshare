@@ -3,7 +3,7 @@
 
   <div class="medicines-offers">
     <% @meds.each do |med| %>
-      <div class="card">
+      <div class="card-meds">
         <%= cl_image_tag med.photo.url(:bright), class:"box" %>
       <h4><%= med.name %></h4>
       <div class="content">
