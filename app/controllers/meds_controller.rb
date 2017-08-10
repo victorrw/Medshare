@@ -12,6 +12,7 @@ class MedsController < ApplicationController
 
     # added for geocoding
     @meds = @meds.where.not(latitude: nil, longitude: nil)
+    @meds = @meds.where(share_id: nil)
     @meds = @meds.where.not(user: current_user)
 
     @hash = Gmaps4rails.build_markers(@meds) do |med, marker|

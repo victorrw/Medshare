@@ -29,7 +29,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @meds = Med.where(user_id: current_user.id)
+    #returns medicaments available to donation by current user
+    @meds = current_user.meds
+    #returns all donations requested by current user
+    @shares = Share.where(taker_id: current_user.id)
+
   end
 
   # private

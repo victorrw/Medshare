@@ -4,12 +4,16 @@
   <div class="medicines-offers">
     <% @meds.each do |med| %>
       <div class="card-meds">
-        <%= cl_image_tag med.photo.url(:bright), class:"box" %>
+        <%= cl_image_tag med.photo.url(:resize), class:"box" %>
         <h4><%= med.name %></h4>
         <div class="content">
-          <p class="descrition"><%= med.description %></p>
+          <p class="description"><%= med.description %></p>
         </div>
-      <p class="align align-down-right"><%= link_to "Mais informações", med_path(med), {class:"btn-search"} %></p>
+        <span class="align-name-mid-left">Doador: <%= link_to user_path(med.user), med.user.name%></span>
+        <div class="avatar align-avatar-left">
+          <%= image_tag donator_picture(med)%>
+        </div>
+        <p><%= link_to "Mais informações", med_path(med), {class:"btn-search align-btn-top-left"}%></p>
       </div>
     <% end %>
   </div>
