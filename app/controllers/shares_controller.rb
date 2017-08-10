@@ -14,7 +14,6 @@ class SharesController < ApplicationController
     share.med = Med.find(params[:med_id])
     share.taker = current_user
     share.save!
-
     redirect_to user_path(current_user)
     # if @share.save
     #   redirect_to user_path(current_user)
