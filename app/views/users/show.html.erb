@@ -23,10 +23,11 @@
           <hr>
           <h4 text-align="top-left">Transações pendentes de aprovação do Doador</h4>
           <div class="card-content">
-            <% @transactions.each_with_index do |transaction, index| %>
+            <% @shares.each_with_index do |share, index| %>
               <p text-align="left">
-                <%= "- #{index + 1}) #{transaction[:med].name}, doador: #{transaction[:giver].name}, solicitado em: #{transaction[:med].updated_at.strftime("%d/%m/%Y")} "%>
-                <% raise %>
+
+                <%= "- #{index + 1}) #{share.med.name}, doador: #{share.giver.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")} "%>
+
               </p>
            <% end %>
           </div>
