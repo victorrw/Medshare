@@ -5,11 +5,11 @@
     <% @meds.each do |med| %>
       <div class="card">
         <%= cl_image_tag med.photo.url(:bright), class:"box" %>
-      <h4><%= med.name %></h4>
-      <div class="content">
-        <p class="descrition"><%= med.description %></p>
-      </div>
-      <%= link_to "Mais informações", med_path(med), {class:"btn-search"} %>
+        <h4><%= med.name %></h4>
+        <div class="content">
+          <p class="descrition"><%= med.description %></p>
+        </div>
+      <p class="align align-down-right"><%= link_to "Mais informações", med_path(med), {class:"btn-search"} %></p>
       </div>
     <% end %>
   </div>
