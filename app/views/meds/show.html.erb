@@ -40,13 +40,13 @@
         <div class="text-center">
           <% if @med.user == current_user %>
             <% if @med.url.present?%>
-              <a class="btn-search" href="<%=@med.url%>">bula</a>
+              <a class="btn-search" href="<%=@med.url%>" target="_blank">bula</a>
             <%end%>
           <% else %>
             <%= button_to "Pedir", shares_path(med_id: @med.id), method: :post, class: "btn-search"%>
             <br>
             <% if @med.url.present?%>
-              <a class="btn-search" href="<%=@med.url%>">bula</a>
+              <a class="btn-search" href="<%=@med.url%>" target="_blank">bula</a>
             <%end%>
 
           <% end %>
