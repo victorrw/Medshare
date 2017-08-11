@@ -37,7 +37,8 @@
 
                     <%unless @share_count == 0%>
                       <div class="badge">
-                      <%=@share_count%>
+                      <%=link_to @share_count, user_path(current_user), class:"color-white"%>
+                      </a>
                       </div>
                     <%end%>
 
