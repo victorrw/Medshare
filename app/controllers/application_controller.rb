@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :store_current_location, :unless => :devise_controller?
   after_filter :store_location
+  before_action :set_badge
 
   def store_location
     session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/
@@ -20,6 +21,12 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :address, :zipcode])
+  end
+
+  def set_badge
+    if user_signed_in?
+      @share_count = current_user.meds.select{ |m| m.share.present? && m.share.status == 'requested' }.count
+    end
   end
 
 end
