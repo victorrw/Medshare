@@ -35,8 +35,20 @@
           <hr>
 
           <div class="card-content max-heigth-card scroll-overflow">
+          <h3>Para minha aprovação</h3>
+          <div class="card-content max-heigth-card scroll-overflow">
+            <% current_users_shares_to_approve.each_with_index do |share, index| %>
+              <p>
+              <%= "- #{index + 1}) #{share.med.name}, solicitante: #{share.taker.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")}"%>
+              <% if share.status == "requested" %>
+                <%= "status: solicitado" %>
+                <%= button_to "Detalhes", edit_share_path(share), method: :get, class: "btn-search" %>
+              <% end %>
+              </p>
+          <% end %>
+          </div>
 
-            <h3>pending approval by donor</h3>
+            <h3>Aguardando aprovação do Doador</h3>
             <% current_user_shares_waiting_on_donor.each_with_index do |share, index| %>
               <p>
               <%= "- #{index + 1}) #{share.med.name}, doador: #{share.giver.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")} status: #{share.status} "%>
@@ -44,18 +56,6 @@
             <% end %>
           </div>
 
-          <h3>pending my approval</h3>
-          <div class="card-content max-heigth-card scroll-overflow">
-            <% current_users_shares_to_approve.each_with_index do |share, index| %>
-              <p>
-              <%= "- #{index + 1}) #{share.med.name}, solicitante: #{share.taker.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")}"%>
-              <% if share.status == "required" %>
-                <%= "status: solicitado" %>
-                <%= button_to "Detalhes", edit_share_path(share), method: :get, class: "btn-search" %>
-              <% end %>
-              </p>
-          <% end %>
-          </div>
 
           <hr>
 
