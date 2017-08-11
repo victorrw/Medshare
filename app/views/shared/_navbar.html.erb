@@ -34,10 +34,14 @@
               <div class="navbar-wagon-item">
                   <div class="dropdown">
                     <%= image_tag user_picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-                    <div class="badge">
+
+                    <%unless @share_count == 0%>
+                      <div class="badge">
                       <%=@share_count%>
-                    </div>
-                    
+                      </div>
+                    <%end%>
+
+
                     <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
                       <li>
                         <%= link_to root_path do %>
@@ -70,7 +74,7 @@
 
               <%= link_to t(".new_med", default: "Doar"),new_med_path, class: "navbar-wagon-item navbar-wagon-link" %>
             <% end %>
-            
+
           </div>
         </div>
       </div>
