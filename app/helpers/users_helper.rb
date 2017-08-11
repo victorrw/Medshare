@@ -31,7 +31,12 @@ module UsersHelper
     shares_sent
   end
 
-  def current_users_meds_received
-    meds_received = Share.where(taker_id: current_user.id).where(status: "sent")
+  def current_users_meds_sent
+    meds_sent = Share.where(taker_id: current_user.id).where(status: "sent")
   end
+
+  def current_users_meds_received
+    meds_received = Share.where(taker_id: current_user.id).where(status: "received")
+  end
+
 end

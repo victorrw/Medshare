@@ -25,14 +25,13 @@ class SharesController < ApplicationController
   def update
     share = Share.find(params[:id])
     share.update(share_params)
-    share.update(status: "sent") if share.tracking.present?
     redirect_to user_path(current_user)
   end
 
   private
 
   def share_params
-    params.require(:share).permit(:tracking)
+    params.require(:share).permit(:tracking, :status)
   end
 
 end
