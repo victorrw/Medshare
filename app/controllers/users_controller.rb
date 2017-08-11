@@ -17,15 +17,16 @@ class UsersController < ApplicationController
   end
 
   def edit
-
+    @user = User.find(current_user)
   end
 
   def update
-    # if @user.update(user_params)
-    #   redirect_to @user
-    # else
-    #   render :edit
-    # end
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+       redirect_to new_med_path
+    else
+       render :edit
+    end
   end
 
   def show
@@ -37,11 +38,7 @@ class UsersController < ApplicationController
 
   # private
 
-  # def user_params
-  #   require(:user).permit(params[:name, :zipcode, :email, :address])
-  # end
-
-  # def set_user
-  #   @user = User.find(params[:id])
-  # end
+  def user_params
+    params.require(:user).permit(:address, :zipcode)
+  end
 end

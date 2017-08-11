@@ -1,2 +1,15 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h2 class='text-center'>Para prosseguir com seu cadastro de doação</h2>
+<h2 class='text-center'>Por favor informe um endereço válido</h2>
+<br>
+<br>
+<div class="container">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <%=simple_form_for(@user) do |u| %>
+      <%= u.input :address, label: 'Endereço Completo:', placeholder: 'logradouro, número, complemento, cidade, estado, país' %>
+      <%= u.input :zipcode, label: 'CEP', placeholder: '00.000-000' %>
+      <%= u.button :submit,'Prosseguir', class: 'btn-search' %>
+    <% end %>
+  </div>
+</div>
+<br>
+<br>
