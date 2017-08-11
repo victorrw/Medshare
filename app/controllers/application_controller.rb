@@ -24,7 +24,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_badge
-    @share_count = current_user.meds.select{ |m| m.share.present? && m.share.status == 'requested' }.count
+    if user_signed_in?
+      @share_count = current_user.meds.select{ |m| m.share.present? && m.share.status == 'requested' }.count
+    end
   end
 
 end
