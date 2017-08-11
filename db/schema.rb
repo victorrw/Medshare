@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170811135216) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170811135216) do
     t.datetime "updated_at", null: false
     t.integer  "taker_id"
     t.string   "status"
+    t.string   "tracking"
     t.index ["taker_id"], name: "index_shares_on_taker_id", using: :btree
   end
 
