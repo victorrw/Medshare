@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170811135216) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,10 +22,10 @@ ActiveRecord::Schema.define(version: 20170811135216) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "photo"
     t.text     "description"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "photo"
     t.string   "url"
     t.index ["share_id"], name: "index_meds_on_share_id", using: :btree
     t.index ["user_id"], name: "index_meds_on_user_id", using: :btree
