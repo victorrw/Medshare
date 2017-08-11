@@ -41,9 +41,6 @@ group :development do
   gem 'pry-rails'
   gem 'binding_of_caller'
   gem 'faker'
-  gem 'binding_of_caller'
-  gem 'pry-byebug'
-  gem 'pry-rails'
   gem 'byebug', platform: :mri
   gem "letter_opener"
 end
