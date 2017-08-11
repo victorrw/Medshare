@@ -12,9 +12,8 @@
 
 /* Logo */
 .navbar-logo img {
-  height: 56px;
-  position: absolute;
-  top: 4px;
+  height: 40px;
+
 }
 
 /* Logo */
@@ -28,9 +27,7 @@
   justify-content: space-between;
   align-items: center;
   min-width: 200px;
-  position:absolute;
-  left: 325px;
-  top: 18px;
+
 }
 
 .search-form {
@@ -76,7 +73,7 @@
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+
 }
 
 /* Navbar link */
@@ -124,5 +121,9 @@
   top: 20px;
   background-color: red;
   left: 72px;
+}
+
+#search-form {
+  justify-content: initial;
 }
 

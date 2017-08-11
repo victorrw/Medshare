@@ -33,7 +33,7 @@
       </div>
       <div class="col-md-6">
         <h1><%=@med.name%></h1>
-        <h3>Validade: <%=@med.exp_date%></h3>
+        <h3>Validade: <%=@med.exp_date.strftime("%m/%d/%Y")%></h3>
         <p class="max-height-150 scroll-overflow"><%=@med.description%></p>
         <%= image_tag donator_picture(@med), class:"card-user avatar" %>
         <span>Doador: <%=@med.user.name%></span>
