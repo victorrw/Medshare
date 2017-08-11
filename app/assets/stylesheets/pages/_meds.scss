@@ -4,6 +4,23 @@
   flex-wrap: wrap;
 
 }
+.donator-profile {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.med-descripion{
+  max-height: 300px;
+  min-height: 260px;
+
+}
+
+.box-button {
+  display: inline-block;
+}
 
 .container {
   background-size: cover;
