@@ -26,6 +26,7 @@ class SharesController < ApplicationController
     share = Share.find(params[:id])
     share.update(share_params)
     redirect_to user_path(current_user)
+
   end
 
   private
