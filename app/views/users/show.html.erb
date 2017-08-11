@@ -110,7 +110,9 @@
             <% current_users_shares_sent.each_with_index do |share, index| %>
               <p>
               <%= "- #{index + 1}) #{share.med.name}, solicitante: #{share.taker.name}, enviado em: #{share.updated_at.strftime("%d/%m/%Y")}"%>
-              <%= "status: #{share.status}" %>
+              <% if share.status == "sent" %>
+                <%= "status: enviado" %>
+              <% end %>
               </p>
             <% end %>
           </div>
