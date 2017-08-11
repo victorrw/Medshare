@@ -73,10 +73,6 @@ class MedsController < ApplicationController
 
   private
 
-  # def set_user
-  #   #@user = User.find(:user_id)
-  # end
-
   def med_params
     params.require(:med).permit(:name, :description, :exp_date, :photo, :photo_cache, :latitude, :longitude)
   end

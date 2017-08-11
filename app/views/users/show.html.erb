@@ -6,6 +6,7 @@
     <h3 text-align="in-line"><%= current_user.name  %> - Histórico</h3>
 
     <div class="row">
+
       <div class="col-lg-4 col-xs-12">
         <div class="card-l">
           <div class="title-med-giver text-center">
@@ -22,28 +23,40 @@
       </div>
 
       <div class="col-lg-8 col-xs-12">
+
         <div class="card">
+
           <div class="title-content">
             <h4 text-align="top-left" >Medicamentos em transação</h4>
           </div>
+
           <hr>
+
           <div class="card-content max-heigth-card scroll-overflow">
+
             <h3>pending approval by donor</h3>
             <% current_user_shares_waiting_on_donor.each_with_index do |share, index| %>
               <p>
               <%= "- #{index + 1}) #{share.med.name}, doador: #{share.giver.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")} status: #{share.status} "%>
               </p>
-          <% end %>
+            <% end %>
+          </div>
+
           <h3>pending my approval</h3>
           <div class="card-content max-heigth-card scroll-overflow">
             <% current_users_shares_to_approve.each_with_index do |share, index| %>
               <p>
-              <% medicament = "- #{index + 1}) #{share.med.name}, solicitante: #{share.taker.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")} status: #{share.status}"%>
-              <%= link_to medicament, "button to chage status"  %>
+              <%= "- #{index + 1}) #{share.med.name}, solicitante: #{share.taker.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")}"%>
+              <%= "status: #{share.status}" %>
+              <% unless share.status.nil? %>
+                <%= button_to "Detalhes", edit_share_path(share), method: :get, class: "btn-search" %>
+              <% end %>
               </p>
           <% end %>
           </div>
+
           <hr>
+
         </div>
 
         <div class="card">
@@ -53,12 +66,14 @@
             <hr>
           </div>
           <div class="card-content max-heigth-card scroll-overflow">
-            <% @meds.each_with_index do |med, index| %>
+            <% current_users_meds_received.each_with_index do |share, index| %>
               <p>
-                <%= "- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
+              <%= "- #{index + 1}) #{share.med.name}, doador: #{share.giver.name}, enviado em: #{share.updated_at.strftime("%d/%m/%Y")}"%>
+              <%= "status: #{share.status}" %>
               </p>
-           <% end %>
+          <% end %>
           </div>
+
         </div>
 
         <div class="card">
@@ -67,11 +82,12 @@
             <hr>
           </div>
           <div class="card-content max-heigth-card scroll-overflow" >
-            <% @meds.each_with_index do |med, index| %>
+            <% current_users_shares_sent.each_with_index do |share, index| %>
               <p>
-                <%= "- #{index + 1}) #{med.name}: #{med.description}, val: #{med.exp_date.strftime("%m/%d/%Y")}" %>
+              <%= "- #{index + 1}) #{share.med.name}, solicitante: #{share.taker.name}, enviado em: #{share.updated_at.strftime("%d/%m/%Y")}"%>
+              <%= "status: #{share.status}" %>
               </p>
-           <% end %>
+          <% end %>
           </div>
         </div>
       </div>
