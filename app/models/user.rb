@@ -17,7 +17,7 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  after_create :send_welcome_email
+  #after_create :send_welcome_email
 
 
   def self.find_for_facebook_oauth(auth)
