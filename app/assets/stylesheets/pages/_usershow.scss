@@ -5,7 +5,7 @@
     // width: 800px;
     margin-bottom: 20px;
     padding: 20px;
-    box-shadow: 10px 10px 5px #888888;
+    //box-shadow: 10px 10px 5px #888888;
 
   }
 
@@ -59,14 +59,15 @@
   hr {
     color: #163a50;
     background-color: #163A4E;
-    height: 2px;
+    height: 1px;
     width: 693px;
+    opacity: 0.3;
   }
 
   .title-med-giver hr {
     color: #163a50;
     background-color: #163A4E;
-    height: 2px;
+    height: 1px;
     width: 330px;
     text-align: center;
   }
