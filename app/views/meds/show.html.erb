@@ -38,17 +38,19 @@
         <%= image_tag donator_picture(@med), class:"card-user avatar" %>
         <span>Doador: <%=@med.user.name%></span>
         <div class="text-center">
+
           <% if @med.user == current_user %>
-            <% if @med.url.present?%>
-              <a class="btn-search" href="<%=@med.url%>" target="_blank">bula</a>
-            <%end%>
+            <form method="post" action="http://www.anvisa.gov.br/datavisa/fila_bula/frmResultado.asp">
+            <%= hidden_field_tag "txtMedicamento", @med.name %>
+            <button type="submit" class="btn-search">Bula</button>
+          </form>
           <% else %>
             <%= button_to "Pedir", shares_path(med_id: @med.id), method: :post, class: "btn-search"%>
             <br>
-            <% if @med.url.present?%>
-              <a class="btn-search" href="<%=@med.url%>" target="_blank">bula</a>
-            <%end%>
-
+            <form method="post" action="http://www.anvisa.gov.br/datavisa/fila_bula/frmResultado.asp">
+            <%= hidden_field_tag "txtMedicamento", @med.name %>
+            <button type="submit" class="btn-search">Bula</button>
+          </form>
           <% end %>
         </div>
       </div>
