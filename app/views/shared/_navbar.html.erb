@@ -1,14 +1,18 @@
 <div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-logo" do %>
-    <%= image_tag "logo_medshare.png" %>
-  <% end %>
+    <!-- Logo -->
+    <% if user_signed_in? %>
 
-  <%= form_tag(meds_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Busque medicamentos", class:"search-form"%>
-    <%= submit_tag "Pesquisar", class: "btn-search" %>
-     <!-- <button type="submit" class=>Pesquisar</button> -->
-  <% end %>
+        <%= link_to root_path, class: "navbar-logo" do %>
+          <%= image_tag "logo_medshare.png" %>
+        <% end %>
+
+    <% end %>
+
+    <%= form_tag(meds_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Busque medicamentos", class:"search-form"%>
+      <%= submit_tag "Pesquisar", class: "btn-search" %>
+       <!-- <button type="submit" class=>Pesquisar</button> -->
+    <% end %>
 
 
   <!-- Right Navigation -->
@@ -18,7 +22,7 @@
 
       <!-- Links when logged in -->
 
-      <%= link_to t(".new_med", default: "Doar"),new_med_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Doar", new_med_path, {class: "btn btn-search"} %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -36,6 +40,11 @@
             <li>
               <%= link_to user_path(current_user) do %>
                 <i class="fa fa-thermometer-quarter" aria-hidden="true"></i>  <%= t(".profile", default: "Medicamentos") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_med_path do %>
+                <i class="fa fa-share" aria-hidden="true"></i>  <%= t(".profile", default: "Doar") %>
               <% end %>
             </li>
             <li>

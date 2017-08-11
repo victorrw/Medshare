@@ -11,7 +11,7 @@
     <div class="col-xs-12">
 
     <%=simple_form_for(@share) do |s| %>
-      <%= s.input :shipping, label: 'Código do Rastreamento:', placeholder: 'Insira o Código de Rastreamento dos Correios' %>
+      <%= s.input :tracking, label: 'Código do Rastreamento:', placeholder: 'Insira o Código de Rastreamento dos Correios' %>
       <%= s.button :submit,'Confirmar envio', class: 'btn-search' %>
     <% end %>
 

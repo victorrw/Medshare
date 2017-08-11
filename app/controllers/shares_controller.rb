@@ -24,17 +24,15 @@ class SharesController < ApplicationController
 
   def update
     share = Share.find(params[:id])
-    share.update(shipping: share_params[:shipping])
-    unless share.shipping.nil?
-      share.update(status: "sent")
-    end
+    share.update(share_params)
+    share.update(status: "sent") if share.tracking.present?
     redirect_to user_path(current_user)
   end
 
   private
 
   def share_params
-    params.require(:share).permit(:shipping)
+    params.require(:share).permit(:tracking)
   end
 
 end
