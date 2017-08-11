@@ -32,26 +32,34 @@
         </div>
       </div>
       <div class="col-md-6">
-        <h1><%=@med.name%></h1>
-        <h3>Validade: <%=@med.exp_date.strftime("%m/%d/%Y")%></h3>
-        <p class="max-height-150 scroll-overflow"><%=@med.description%></p>
-        <%= image_tag donator_picture(@med), class:"card-user avatar" %>
-        <span>Doador: <%=@med.user.name%></span>
-        <div class="text-center">
+        <div class="med-descripion">
+          <h1><%=@med.name%></h1>
+          <h3>Validade: <%=@med.exp_date.strftime("%m/%d/%Y")%></h3>
+          <p ><%=@med.description%></p>
+        </div>
+        <div class="donator-profile">
+          <%= image_tag donator_picture(@med), id:"donor", class:"card-user avatar" %>
+          <span>Doador: <%=@med.user.name%></span>
+        </div>
 
-          <% if @med.user == current_user %>
-            <form method="post" action="http://www.anvisa.gov.br/datavisa/fila_bula/frmResultado.asp" target="_blank">
-            <%= hidden_field_tag "txtMedicamento", @med.name %>
-            <button type="submit" class="btn-search">Bula</button>
-          </form>
-          <% else %>
-            <%= button_to "Pedir", shares_path(med_id: @med.id), method: :post, class: "btn-search"%>
-            <br>
-            <form method="post" action="http://www.anvisa.gov.br/datavisa/fila_bula/frmResultado.asp" target="_blank">
-            <%= hidden_field_tag "txtMedicamento", @med.name %>
-            <button type="submit" class="btn-search">Bula</button>
-          </form>
-          <% end %>
+          <div class="text-center">
+              <div class="box-button">
+                <form method="post" action="http://www.anvisa.gov.br/datavisa/fila_bula/frmResultado.asp" target="_blank">
+                  <%= hidden_field_tag "txtMedicamento", @med.name %>
+                  <button type="submit" class="btn btn-danger">Bula</button>
+                </form>
+              </div>
+
+              <div class="box-button">
+                <% if @med.user != current_user %>
+                  <%= button_to "Pedir", shares_path(med_id: @med.id), method: :post, class: "btn btn-primary"%>
+                <% end %>
+              </div>
+              <div class="box-button">
+                <button type="submit" class="btn btn-success">Doar para Banco de Remédios</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
