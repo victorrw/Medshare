@@ -49,8 +49,8 @@
             <% current_users_shares_to_approve.each_with_index do |share, index| %>
               <p>
               <%= "- #{index + 1}) #{share.med.name}, solicitante: #{share.taker.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")}"%>
-              <%= "status: #{share.status}" %>
-              <% unless share.status.nil? %>
+              <% if share.status == "required" %>
+                <%= "status: solicitado" %>
                 <%= button_to "Detalhes", edit_share_path(share), method: :get, class: "btn-search" %>
               <% end %>
               </p>
@@ -64,14 +64,29 @@
         <div class="card">
 
           <div class="title-content">
-            <h4 text-align="top-left">Medicamentos recebidos</h4>
+            <h4 text-align="top-left">Medicamentos em Trânsito</h4>
+            <hr>
+          </div>
+          <div class="card-content max-heigth-card scroll-overflow">
+            <% current_users_meds_sent.each_with_index do |share, index| %>
+              <p>
+              <%= "- #{index + 1}) #{share.med.name}, doador: #{share.giver.name}, enviado em: #{share.updated_at.strftime("%d/%m/%Y")}"%>
+              <% if share.status == "sent" %>
+                <%= "status: enviado" %>
+                <%= button_to "Recebi", share_path(share, share: { status: "received" }), method: :patch, class: "btn-search" %>
+              <% end %>
+              </p>
+          <% end %>
+          </div>
+
+          <div class="title-content">
+            <h4 text-align="top-left">Medicamentos Recebidos</h4>
             <hr>
           </div>
           <div class="card-content max-heigth-card scroll-overflow">
             <% current_users_meds_received.each_with_index do |share, index| %>
               <p>
-              <%= "- #{index + 1}) #{share.med.name}, doador: #{share.giver.name}, enviado em: #{share.updated_at.strftime("%d/%m/%Y")}"%>
-              <%= "status: #{share.status}" %>
+              <%= "- #{index + 1}) #{share.med.name}, doador: #{share.giver.name}, enviado em: #{share.updated_at.strftime("%d/%m/%Y")} status: recebido"%>
               </p>
           <% end %>
           </div>
