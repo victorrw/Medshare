@@ -1,5 +1,5 @@
 
-<h2 class='text-center'>Preencha os dados do remédio</h2>
+<h2 class='text-center'>Preencha os dados do remédio que deseja doar</h2>
 <div class="container">
   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
     <%=simple_form_for(@med) do |m| %>
@@ -8,7 +8,7 @@
       <%= m.input :photo, label: 'Fotos do medicamento' %>
       <%= m.input :photo_cache, as: :hidden %>
       <%= m.input :description, label: 'Adicione uma descrição' %>
-      <%= m.button :submit,'Anunciar', class: 'btn-search' %>
+      <%= m.button :submit,'Doar', class: 'btn-search' %>
     <% end %>
   </div>
 </div>
