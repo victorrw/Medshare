@@ -29,7 +29,7 @@ class MedsController < ApplicationController
 
   def create
     #criar medicamento atrelado ao usuário
-    if current_user.address.nil?
+    if current_user.address == ""
       redirect_to edit_user_path(current_user)
     else
       @med = current_user.meds.new(med_params)
@@ -45,6 +45,7 @@ class MedsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
