@@ -1,2 +1,20 @@
-<h1>Shares#edit</h1>
-<p>Find me in app/views/shares/edit.html.erb</p>
+<h1><%= "Solicitação n.#{@share.id}"  %> </h1>
+
+<p><%= "Medicamento: #{@share.med.name}" %></p>
+<p><%= "Solicitante: #{@share.taker.name}" %></p>
+<p><%= "Endereço de envio: #{@share.taker.address}" %></p>
+<p><%= "CEP: #{@share.taker.zipcode}" %></p>
+<p><%= "Valor estimado do frete: R$ (a calcular)" %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+    <%=simple_form_for(@share) do |s| %>
+      <%= s.input :shipping, label: 'Código do Rastreamento:', placeholder: 'Insira o Código de Rastreamento dos Correios' %>
+      <%= s.button :submit,'Confirmar envio', class: 'btn-search' %>
+    <% end %>
+
+    </div>
+  </div>
+</div>

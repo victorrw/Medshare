@@ -13,12 +13,28 @@ class SharesController < ApplicationController
     share = Share.new
     share.med = Med.find(params[:med_id])
     share.taker = current_user
+    share.status = "requested"
     share.save!
     redirect_to user_path(current_user)
-    # if @share.save
-    #   redirect_to user_path(current_user)
-    # else
-    #   render :new
-    # end
   end
+
+  def edit
+    @share = Share.find(params[:id])
+  end
+
+  def update
+    share = Share.find(params[:id])
+    share.update(shipping: share_params[:shipping])
+    unless share.shipping.nil?
+      share.update(status: "sent")
+    end
+    redirect_to user_path(current_user)
+  end
+
+  private
+
+  def share_params
+    params.require(:share).permit(:shipping)
+  end
+
 end
