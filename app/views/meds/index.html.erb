@@ -13,9 +13,9 @@
             <div class="content">
               <p class="description"><%= med.description %></p>
             </div>
-            <span class="align-name-mid-left">Doador: <%= link_to user_path(med.user), med.user.name%></span>
-            <div class="avatar align-avatar-left">
-              <%= image_tag donator_picture(med)%>
+            <span class="align-name-mid-left"><%= link_to user_path(med.user.name)%></span>
+            <div class="align-avatar-left">
+              <%= image_tag donator_picture(med), class:'img-circle'%>
             </div>
             <p><%= link_to "Mais informações", med_path(med), {class:"btn-search align-btn-top-left"}%></p>
           </div>
