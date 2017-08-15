@@ -55,11 +55,11 @@
           </div>
 
           <div class="card-content">
-            <h4>Aguardando aprovação do Doador</h4>
+            <h4>Aguardando aprovação do doador</h4>
             <hr>
             <% current_user_shares_waiting_on_donor.each_with_index do |share, index| %>
               <p>
-              <%= "- #{index + 1}) #{share.med.name}, doador: #{share.giver.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")} status: #{share.status} "%>
+              <%= "- #{index + 1}) #{share.med.name}, doador: #{share.giver.name}, solicitado em: #{share.created_at.strftime("%d/%m/%Y")} status: solicitado ao doador"%>
               </p>
             <% end %>
           </div>
@@ -92,7 +92,7 @@
             <hr>
             <h4 text-align="top-left">PEDIDOS FINALIZADOS</h4>
             <hr>
-            <h4 text-align="top-left">Medicamentos Recebidos</h4>
+            <h4 text-align="top-left">Medicamentos recebidos</h4>
             <hr>
             <% current_users_meds_received.each_with_index do |share, index| %>
               <p>
@@ -112,6 +112,9 @@
               <%= "- #{index + 1}) #{share.med.name}, solicitante: #{share.taker.name}, enviado em: #{share.updated_at.strftime("%d/%m/%Y")}"%>
               <% if share.status == "sent" %>
                 <%= "status: enviado" %>
+              <% end %>
+              <% if share.status == "received" %>
+                <%= "status: recebido" %>
               <% end %>
               </p>
             <% end %>
