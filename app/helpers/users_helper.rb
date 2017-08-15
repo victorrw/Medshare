@@ -24,7 +24,7 @@ module UsersHelper
   def current_users_shares_sent
     shares_sent = []
     @shares.each do |share|
-      if share.giver == current_user && share.status == "sent"
+      if share.giver == current_user && share.status == "sent" || && share.status == "received"
       shares_sent << share
       end
     end
